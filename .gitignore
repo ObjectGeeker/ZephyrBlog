@@ -1,0 +1,65 @@
+# 依赖目录
+node_modules/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# 构建输出目录
+.vitepress/dist/
+.vitepress/cache/
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 和编辑器配置（个人偏好，建议忽略）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# AI 工具文件夹
+.codex/
+.qoder/
+
+# 临时文件
+*.tmp
+*.temp
+
+# 测试覆盖率目录
+coverage/
+.nyc_output/
+
+# 其他可能需要的忽略项
+# 如果使用 eslint
+.eslintcache
+
+# 如果使用 prettier
+.prettiercache
+
+# 如果使用 typescript 的增量编译
+*.tsbuildinfo
