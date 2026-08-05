@@ -3,23 +3,10 @@
 layout: home
 
 hero:
-  name: "ZephyrBlog"
+  name: "Zephyr's Blog"
   text: "怕什么真理无穷，进一步有一步的欢喜"
-  tagline: My great project tagline
-  actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  tagline: 记录技术成长的每一步，分享开发中的思考与实践。在代码的世界里，持续学习，持续进步。
+  image:
+    src: /logo.png
+    alt: ZephyrBlog Logo
 ---
-

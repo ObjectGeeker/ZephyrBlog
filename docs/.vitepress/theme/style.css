@@ -44,15 +44,21 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  /* 蓝白色调品牌色 */
+  --vp-c-blue-1: #1e52c0;
+  --vp-c-blue-2: #2b62d9;
+  --vp-c-blue-3: #3f74e8;
+  --vp-c-blue-soft: rgba(59, 130, 246, 0.14);
+
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);
   --vp-c-default-soft: var(--vp-c-gray-soft);
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  --vp-c-brand-1: var(--vp-c-blue-1);
+  --vp-c-brand-2: var(--vp-c-blue-2);
+  --vp-c-brand-3: var(--vp-c-blue-3);
+  --vp-c-brand-soft: var(--vp-c-blue-soft);
 
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
@@ -68,6 +74,27 @@
   --vp-c-danger-2: var(--vp-c-red-2);
   --vp-c-danger-3: var(--vp-c-red-3);
   --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+/**
+ * 浅色模式：白色/浅色背景
+ * -------------------------------------------------------------------------- */
+
+:root:not(.dark) {
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-soft: #f5f8fd;
+  --vp-c-bg-mute: #eef2f9;
+}
+
+/**
+ * 深色模式：保留默认深色背景，品牌蓝色微调亮度
+ * -------------------------------------------------------------------------- */
+
+.dark {
+  --vp-c-brand-1: #7aa5f5;
+  --vp-c-brand-2: #5b8bef;
+  --vp-c-brand-3: #3f74e8;
+  --vp-c-brand-soft: rgba(96, 165, 250, 0.16);
 }
 
 /**
@@ -94,14 +121,14 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #bd34fe 30%,
-    #41d1ff
+    #1e52c0 30%,
+    #4da3ff
   );
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #bd34fe 50%,
-    #47caff 50%
+    #1e52c0 50%,
+    #4da3ff 50%
   );
   --vp-home-hero-image-filter: blur(44px);
 }
@@ -119,6 +146,155 @@
 }
 
 /**
+ * Home: Hero 布局 —— 移动端 Logo 在上，桌面端 Logo 在左
+ * -------------------------------------------------------------------------- */
+
+.VPHome .VPHero {
+  text-align: center;
+  padding: calc(var(--vp-nav-height) + 32px) 24px 32px;
+}
+
+.VPHome .VPHero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.VPHome .VPHero .main {
+  order: 2;
+  width: 100%;
+  max-width: 640px;
+}
+
+.VPHome .VPHero .image {
+  order: 1;
+  flex: none;
+  width: 156px;
+  min-height: 0;
+  height: 156px;
+  margin: 0;
+}
+
+.VPHome .VPHero .image-container {
+  width: 156px;
+  height: 156px;
+  transform: none;
+}
+
+.VPHome .VPHero .image-bg {
+  display: none;
+}
+
+.VPHome .VPHero .image-src {
+  max-width: 156px;
+  max-height: 156px;
+}
+
+.VPHome .VPHero .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.VPHome .VPHero .name.clip {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.VPHome .VPHero .text {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.VPHome .VPHero .tagline {
+  position: relative;
+  margin-top: 24px;
+  padding-top: 22px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.VPHome .VPHero .tagline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--vp-c-brand-3);
+}
+
+@media (min-width: 960px) {
+  .VPHome .VPHero {
+    padding: calc(var(--vp-nav-height) + 48px) 64px 40px;
+    text-align: left;
+  }
+
+  .VPHome .VPHero .container {
+    flex-direction: row;
+    gap: 32px;
+    max-width: 860px;
+  }
+
+  .VPHome .VPHero .main {
+    order: 2;
+    flex: 0 1 560px;
+    width: auto;
+    max-width: 560px;
+  }
+
+  .VPHome .VPHero .image {
+    order: 1;
+    width: 200px;
+    height: 200px;
+  }
+
+  .VPHome .VPHero .image-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .VPHome .VPHero .image-src {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .VPHome .VPHero .heading {
+    align-items: flex-start;
+  }
+
+  .VPHome .VPHero.has-image .name,
+  .VPHome .VPHero.has-image .text,
+  .VPHome .VPHero.has-image .tagline {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .VPHome .VPHero .tagline::before {
+    left: 0;
+    transform: none;
+  }
+}
+
+/**
+ * 导航栏：Logo 尺寸
+ * -------------------------------------------------------------------------- */
+
+.VPNavBarTitle.has-sidebar .title,
+.VPNavBarTitle .title {
+  gap: 8px;
+}
+
+.VPNavBarTitle .logo {
+  height: 32px;
+}
+
+/**
  * Component: Custom Block
  * -------------------------------------------------------------------------- */
 
@@ -129,3 +305,149 @@
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
+/**
+ * Component: Home Categories
+ * -------------------------------------------------------------------------- */
+
+.home-categories {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.category-tab {
+  padding: 6px 28px;
+  border: 1px solid var(--vp-c-brand-2);
+  border-radius: 999px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow:
+    0 3px 8px rgba(30, 82, 192, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.category-tab:hover {
+  background: rgba(59, 130, 246, 0.25);
+  box-shadow:
+    0 5px 12px rgba(30, 82, 192, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.category-tab.active {
+  background: linear-gradient(180deg, var(--vp-c-brand-2), var(--vp-c-brand-1));
+  border-color: var(--vp-c-brand-1);
+  color: #ffffff;
+  box-shadow:
+    0 6px 16px rgba(30, 82, 192, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+  padding: 20px;
+  text-align: left;
+  text-decoration: none;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.post-card:hover {
+  border-color: var(--vp-c-brand-3);
+  box-shadow: 0 8px 24px rgba(30, 82, 192, 0.12);
+  transform: translateY(-2px);
+}
+
+.post-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--vp-c-text-1);
+}
+
+.post-card:hover .post-card-title {
+  color: var(--vp-c-brand-1);
+}
+
+.post-card-desc {
+  margin: 0;
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tag {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.28),
+    rgba(59, 130, 246, 0.16)
+  );
+  color: var(--vp-c-brand-1);
+  font-size: 12px;
+  line-height: 1.6;
+  box-shadow:
+    0 2px 6px rgba(30, 82, 192, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.post-date {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.post-empty {
+  font-size: 14px;
+  color: var(--vp-c-text-3);
+  text-align: center;
+  padding: 24px 0;
+}

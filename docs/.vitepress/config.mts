@@ -6,10 +6,13 @@ export default defineConfig({
   description: "怕什么真理无穷，进一步有一步的欢喜",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/logo.png',
+
     nav: [
       { text: '首页', link: '/' },
       { text: '技术', link: '/tech' },
       { text: '项目', link: '/project' },
+      { text: '成长', link: '/growth' },
     ],
 
     sidebar: [
