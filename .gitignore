@@ -63,3 +63,4 @@ coverage/
 
 # 如果使用 typescript 的增量编译
 *.tsbuildinfo
+dist
