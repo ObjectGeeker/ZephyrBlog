@@ -35,8 +35,8 @@ export default createContentLoader(
           .filter(
             (p) =>
               p.url.startsWith(`/${cat.key}/`) &&
-              p.url !== cat.link &&
-              !p.url.endsWith('/index'),
+              // index.md 的 url 统一以 / 结尾，借此过滤掉所有目录索引页
+              !p.url.endsWith('/'),
           )
           .map((p) => ({
             title: p.frontmatter.title || p.url,
